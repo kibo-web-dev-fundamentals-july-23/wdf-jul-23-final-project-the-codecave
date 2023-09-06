@@ -377,7 +377,7 @@ body.active {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: var(--gunmetal);
+  color: var(--davys-gray);
   font-weight: var(--fw-500);
   transition: var(--transition-1);
 }
