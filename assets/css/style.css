@@ -193,6 +193,11 @@ body.active {
   margin-left: 5px;
 }
 
+.footer-brand .logo {
+  color: var(--davys-gray);
+}
+/* --------------------------------------------- */
+
 .title-wrapper .projects-head {
   color: var(--gunmetal3);
 }
@@ -287,9 +292,12 @@ body.active {
   line-height: 1.3;
 }
 
+.footer-list .h4 {
+  color: var(--davys-gray);
+}
+
 .h2,
-.h3,
-.h4 {
+.h3 {
   color: var(--rest-titles);
   line-height: 1.3;
 }
