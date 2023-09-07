@@ -256,6 +256,10 @@ body.active {
 .blog-heads {
   color: var(--gunmetal);
 }
+
+.blog-title .h2 {
+  color: var(--gunmetal);
+}
 /* .logo h1{
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
   background-clip: unset;
@@ -370,7 +374,7 @@ body.active {
 }
 
 .card-text {
-  font-size: var(--fs-4);
+  font-size: 1.6rem;
 }
 
 .btn-link {
@@ -482,6 +486,10 @@ body.active {
   z-index: 1;
   visibility: hidden;
   transition: 0.25s var(--cubic-in);
+}
+
+.navbar-link {
+  font-family: "Abril Fatface", cursive;
 }
 
 .navbar.active {
