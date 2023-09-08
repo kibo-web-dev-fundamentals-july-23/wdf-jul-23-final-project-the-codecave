@@ -779,7 +779,7 @@ body.active {
 }
 
 .footer-link:is(:hover, :focus) {
-  color: var(--sefety-orange);
+  color: var(--davys-gray);
 }
 
 .footer-brand .footer-link:not(:last-of-type) {
