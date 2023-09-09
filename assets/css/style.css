@@ -260,23 +260,6 @@ body.active {
 .blog-title .h2 {
   color: var(--gunmetal);
 }
-/* .logo h1{
-  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-  background-clip: unset;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-  animation: unset;
-	-webkit-animation: hue 2s infinite linear;
-} */
-
-/* @keyframes hue {
-  from {
-    -webkit-filter: hue-rotate(0deg);
-  }
-  to {
-    -webkit-filter: hue-rotate(-360deg);
-  }
-} */
 
 /*-----------------------------------*\
   #REUSED STYLE
@@ -710,25 +693,6 @@ body.active {
 /* .blog-card .card-banner:is(:hover, :focus) .img-cover {
   transform: scale(1.2);
 } */
-
-.blog-card .card-tag {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: var(--white);
-  color: var(--gunmetal);
-  font-size: var(--fs-5);
-  font-weight: var(--fw-500);
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  transition: var(--transition-1);
-}
-
-.blog-card .card-tag:is(:hover, :focus) {
-  background-color: var(--sefety-orange);
-  color: var(--white);
-}
 
 .blog-card :is(.meta-list, .meta-item) {
   display: flex;
