@@ -1,6 +1,8 @@
 ("use strict");
 
 // Main code
+
+// Selecting various elements by their data attributes or IDs
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
@@ -16,18 +18,24 @@ const cancelIcon = document.getElementById("cancel-icon");
 const cardTitles = document.querySelectorAll(".blog-heads");
 const logoDiv = document.querySelector(".logoDiv");
 
+// Adding event listeners to multiple elements with a common type and callback
 addEventOnElem(navTogglers, "click", toggleNavbar);
 addEventOnElem(navbarLinks, "click", closeNavbar);
 addEventOnElem(window, "scroll", activeElemOnScroll);
 
+// Handling hover effects for navigation links
 navbarLinks.forEach(handleNavbarLinksHover);
 buttons.forEach(handleButtonHover);
 projectCards.forEach(handleProjectCardHover);
 blogCards.forEach(handleProjectCardHover);
 
+// Handling the cookie popup when the DOM is loaded
 document.addEventListener("DOMContentLoaded", handleCookiePopup);
+
+// Handling hover effects for card titles
 cardTitles.forEach(handleCardTitleHover);
 
+// Adding mouseover and mouseout event listeners to the logoDiv
 logoDiv.addEventListener("mouseover", () => {
   showParagraph(logoDiv);
 });
@@ -48,18 +56,22 @@ function addEventOnElem(elem, type, callback) {
 }
 
 // Navigation functions
+
+// Toggles the navigation menu and overlay's visibility
 function toggleNavbar() {
   navbar.classList.toggle("active");
   overlay.classList.toggle("active");
   document.body.classList.toggle("active");
 }
 
+// Closes the navigation menu
 function closeNavbar() {
   navbar.classList.remove("active");
   overlay.classList.remove("active");
   document.body.classList.remove("active");
 }
 
+// Handles hover effects for navigation links
 function handleNavbarLinksHover() {
   navbarLinks.forEach((link) => {
     link.addEventListener("mouseover", () => {
@@ -73,6 +85,8 @@ function handleNavbarLinksHover() {
 }
 
 // Button functions
+
+// Handles hover effects for buttons
 function handleButtonHover(button) {
   button.addEventListener("mouseover", () => {
     button.style.backgroundColor = "transparent";
@@ -84,6 +98,8 @@ function handleButtonHover(button) {
 }
 
 // Header on scroll function
+
+// Adds or removes the "active" class from the header based on scroll position
 function activeElemOnScroll() {
   if (window.scrollY > 100) {
     header.classList.add("active");
@@ -93,6 +109,8 @@ function activeElemOnScroll() {
 }
 
 // Project card functions
+
+// Handles hover effects for project cards
 function handleProjectCardHover(card) {
   const imgCover = card.querySelector(".img-cover");
   card.addEventListener("mouseenter", () => {
@@ -107,10 +125,13 @@ function handleProjectCardHover(card) {
 }
 
 // Cookie popup functions
+
+// Closes the cookie popup
 function closeCookiePopup() {
   cookiePopup.style.display = "none";
 }
 
+// Handles the display of the cookie popup when the page loads
 function handleCookiePopup() {
   if (!localStorage.getItem("cookieAccepted")) {
     cookiePopup.style.display = "block";
@@ -132,6 +153,8 @@ function handleCookiePopup() {
 }
 
 // Card title functions
+
+// Handles hover effects for card titles
 function handleCardTitleHover(cardTitle) {
   cardTitle.addEventListener("mouseover", () => {
     cardTitle.classList.add("hover:underline");
@@ -141,6 +164,7 @@ function handleCardTitleHover(cardTitle) {
     cardTitle.classList.remove("hover:underline");
   });
 }
+
 // Function to show the paragraph on mouseover
 function showParagraph(logoDiv) {
   // Find the paragraph within the logo

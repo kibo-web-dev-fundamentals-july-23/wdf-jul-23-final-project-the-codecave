@@ -1,7 +1,3 @@
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
   /**
    * colors
@@ -26,12 +22,6 @@
   --white: hsl(0, 0%, 100%);
   --snow: hsl(345, 20%, 96%);
 
-  /**
-   * typography
-   */
-
-  --ff-jost: "Jost", sans-serif;
-
   --fs-1: 3.8rem;
   --fs-2: 2.2rem;
   --fs-3: 2rem;
@@ -48,28 +38,11 @@
   --section-padding: 80px;
 
   /**
-   * shadow
-   */
-
-  --shadow-1: 0px 2px 15px hsla(0, 0%, 0%, 0.05);
-  --shadow-2: -10px 10px 40px -2px hsla(217, 21%, 16%, 0.05);
-
-  /**
-   * border radius
-   */
-
-  --radius-pill: 500px;
-  --radius-circle: 50%;
-  --radius-4: 4px;
-
-  /**
    * transition
    */
 
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease;
-  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
-  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
 }
 
 /*-----------------------------------*\
@@ -117,7 +90,7 @@ ion-icon {
 }
 
 html {
-  font-family: var(--ff-jost);
+  font-family: "Jost", sans-serif;
   font-size: 10px;
   scroll-behavior: smooth;
 }
@@ -133,25 +106,6 @@ body.active {
   overflow: hidden;
 }
 
-:focus-visible {
-  outline-offset: 4px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: hsl(0, 0%, 98%);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: hsl(0, 0%, 80%);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(0, 0%, 70%);
-}
 .h1,
 .h2 {
   font-family: "Righteous", cursive;
@@ -319,7 +273,7 @@ body.active {
   background-color: var(--bg, var(--gunmetal));
   padding: var(--padding, 10px 20px);
   border: 2px solid var(--border-color, var(--gunmetal));
-  border-radius: var(--radius-4);
+  border-radius: 4px;
   transition: var(--transition-1);
   border-radius: 50px;
 }
@@ -419,7 +373,7 @@ body.active {
 .header.active {
   position: fixed;
   background-color: var(--white);
-  box-shadow: var(--shadow-1);
+  box-shadow: 0px 2px 15px;
   transform: translateY(-100%);
   animation: slideIn 0.5s ease forwards;
 }
@@ -445,7 +399,7 @@ body.active {
   color: var(--gunmetal);
   font-size: 20px;
   padding: 10px;
-  border-radius: var(--radius-circle);
+  border-radius: 50%;
   transition: var(--transition-1);
 }
 
@@ -468,7 +422,7 @@ body.active {
   background-color: var(--background);
   z-index: 1;
   visibility: hidden;
-  transition: 0.25s var(--cubic-in);
+  transition: 0.25s;
 }
 
 .navbar-link {
@@ -478,7 +432,7 @@ body.active {
 .navbar.active {
   transform: translate(450px);
   visibility: visible;
-  transition: 0.5s var(--cubic-out);
+  transition: 0.5s;
 }
 
 .navbar-title {
@@ -563,8 +517,8 @@ body.active {
 .service-card {
   background-color: var(--white);
   padding: 50px 30px;
-  border-radius: var(--radius-4);
-  box-shadow: var(--shadow-2);
+  border-radius: 4px;
+  box-shadow: -10px 10px 40px -2px;
 }
 
 .service-card .card-title {
@@ -667,7 +621,7 @@ body.active {
   color: var(--gunmetal);
   font-size: 22px;
   padding: 14px;
-  border-radius: var(--radius-circle);
+  border-radius: 50%;
   transform: rotate(-45deg);
   transition: var(--transition-1);
 }
