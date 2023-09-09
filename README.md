@@ -2,7 +2,7 @@
 
 ## Welcome...
 
-![first page](assets/images/first%20page.png)
+![first page](assets/images/first-page.png)
 
 ## Colour Palette...
 
