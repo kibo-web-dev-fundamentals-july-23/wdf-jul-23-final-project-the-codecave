@@ -18,6 +18,22 @@ const cancelIcon = document.getElementById("cancel-icon");
 const cardTitles = document.querySelectorAll(".blog-heads");
 const logoDiv = document.querySelector(".logoDiv");
 
+// Utility function to add event listeners to elements
+function addEventOnElem(elem, type, callback) {
+  if (elem.length > 1) {
+    // If elem is a collection of elements (e.g., a NodeList)
+    for (let i = 0; i < elem.length; i++) {
+      // Loop through each element in the collection
+      elem[i].addEventListener(type, callback);
+      // Add the event listener with the specified type and callback function
+    }
+  } else {
+    // If elem is a single element
+    elem.addEventListener(type, callback);
+    // Add the event listener with the specified type and callback function
+  }
+}
+
 // Adding event listeners to multiple elements with a common type and callback
 addEventOnElem(navTogglers, "click", toggleNavbar);
 addEventOnElem(navbarLinks, "click", closeNavbar);
@@ -43,17 +59,6 @@ logoDiv.addEventListener("mouseover", () => {
 logoDiv.addEventListener("mouseout", () => {
   hideParagraph(logoDiv);
 });
-
-// Utility function to add event listeners to elements
-function addEventOnElem(elem, type, callback) {
-  if (elem.length > 1) {
-    for (let i = 0; i < elem.length; i++) {
-      elem[i].addEventListener(type, callback);
-    }
-  } else {
-    elem.addEventListener(type, callback);
-  }
-}
 
 // Navigation functions
 
