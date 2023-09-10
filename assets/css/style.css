@@ -334,7 +334,7 @@ body {
 }
 
 .header.active {
-  position: fixed;
+  position: sticky;
   background-color: var(--white);
   box-shadow: 0px 2px 15px;
   transform: translateY(-100%);

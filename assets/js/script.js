@@ -4,7 +4,7 @@
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-const overlay = document.querySelector("[data-overlay]");
+// const overlay = document.querySelector("[data-overlay]");
 const header = document.querySelector("[data-header]");
 const buttons = document.querySelectorAll(".btn");
 const projectCards = document.querySelectorAll(".project-card");
@@ -32,12 +32,11 @@ function addEventOnElem(elem, type, callback) {
   }
 }
 
-// Toggles the navigation menu and overlay's visibility
+// Toggles the navigation menu's visibility
 addEventOnElem(navTogglers, "click", toggleNavbar);
 
 function toggleNavbar() {
   navbar.classList.toggle("active");
-  overlay.classList.toggle("active");
   document.body.classList.toggle("active");
 }
 // Closes the navigation menu
@@ -45,7 +44,6 @@ addEventOnElem(navbarLinks, "click", closeNavbar);
 
 function closeNavbar() {
   navbar.classList.remove("active");
-  overlay.classList.remove("active");
   document.body.classList.remove("active");
 }
 
@@ -56,6 +54,34 @@ function activeElemOnScroll() {
     header.classList.add("active");
   } else {
     header.classList.remove("active");
+  }
+}
+
+// Handling the cookie popup when the page is loaded
+document.addEventListener("DOMContentLoaded", handleCookiePopup);
+
+// Closes the cookie popup
+function closeCookiePopup() {
+  cookiePopup.style.display = "none";
+}
+
+function handleCookiePopup() {
+  if (!localStorage.getItem("cookieAccepted")) {
+    cookiePopup.style.display = "block";
+
+    acceptCookieButton.addEventListener("click", () => {
+      closeCookiePopup();
+      localStorage.setItem("cookieAccepted", "true");
+    });
+
+    rejectCookieButton.addEventListener("click", () => {
+      closeCookiePopup();
+      localStorage.setItem("cookieRejected", "true");
+    });
+
+    cancelIcon.addEventListener("click", () => {
+      closeCookiePopup();
+    });
   }
 }
 
@@ -104,34 +130,6 @@ function handleProjectCardHover(card) {
   });
 }
 
-// Handling the cookie popup when the DOM is loaded
-document.addEventListener("DOMContentLoaded", handleCookiePopup);
-
-// Closes the cookie popup
-function closeCookiePopup() {
-  cookiePopup.style.display = "none";
-}
-
-function handleCookiePopup() {
-  if (!localStorage.getItem("cookieAccepted")) {
-    cookiePopup.style.display = "block";
-
-    acceptCookieButton.addEventListener("click", () => {
-      closeCookiePopup();
-      localStorage.setItem("cookieAccepted", "true");
-    });
-
-    rejectCookieButton.addEventListener("click", () => {
-      closeCookiePopup();
-      localStorage.setItem("cookieRejected", "true");
-    });
-
-    cancelIcon.addEventListener("click", () => {
-      closeCookiePopup();
-    });
-  }
-}
-
 // Handling hover effects for card titles
 cardTitles.forEach(handleCardTitleHover);
 
@@ -144,15 +142,6 @@ function handleCardTitleHover(cardTitle) {
     cardTitle.classList.remove("hover:underline");
   });
 }
-
-// Adding mouseover and mouseout event listeners to the logoDiv
-logoDiv.addEventListener("mouseover", () => {
-  showParagraph(logoDiv);
-});
-
-logoDiv.addEventListener("mouseout", () => {
-  hideParagraph(logoDiv);
-});
 
 // Logo functions
 // Function to show the logo paragraph on mouseover
@@ -176,3 +165,12 @@ function hideParagraph(logoDiv) {
     paragraph.style.visibility = "hidden";
   }
 }
+
+// Adding mouseover and mouseout event listeners to the logoDiv
+logoDiv.addEventListener("mouseover", () => {
+  showParagraph(logoDiv);
+});
+
+logoDiv.addEventListener("mouseout", () => {
+  hideParagraph(logoDiv);
+});
