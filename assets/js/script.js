@@ -32,22 +32,118 @@ function addEventOnElem(elem, type, callback) {
   }
 }
 
-// Adding event listeners to multiple elements with a common type and callback
+// Toggles the navigation menu and overlay's visibility
 addEventOnElem(navTogglers, "click", toggleNavbar);
+
+function toggleNavbar() {
+  navbar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  document.body.classList.toggle("active");
+}
+// Closes the navigation menu
 addEventOnElem(navbarLinks, "click", closeNavbar);
+
+function closeNavbar() {
+  navbar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("active");
+}
+
+// Adds or removes the "active" class from the header based on scroll position
 addEventOnElem(window, "scroll", activeElemOnScroll);
+function activeElemOnScroll() {
+  if (window.scrollY > 100) {
+    header.classList.add("active");
+  } else {
+    header.classList.remove("active");
+  }
+}
 
 // Handling hover effects for navigation links
 navbarLinks.forEach(handleNavbarLinksHover);
+
+function handleNavbarLinksHover() {
+  navbarLinks.forEach((link) => {
+    link.addEventListener("mouseover", () => {
+      link.style.color = "var(--sefety-orange)";
+    });
+
+    link.addEventListener("mouseout", () => {
+      link.style.color = "var(--davys-gray)";
+    });
+  });
+}
+
+// Handles hover effects for buttons
 buttons.forEach(handleButtonHover);
+
+function handleButtonHover(button) {
+  button.addEventListener("mouseover", () => {
+    button.style.backgroundColor = "transparent";
+  });
+
+  button.addEventListener("mouseout", () => {
+    button.style.backgroundColor = "var(--gunmetal)";
+  });
+}
+
+// Handles hover effects for project cards
 projectCards.forEach(handleProjectCardHover);
 blogCards.forEach(handleProjectCardHover);
+
+function handleProjectCardHover(card) {
+  const imgCover = card.querySelector(".img-cover");
+  card.addEventListener("mouseenter", () => {
+    imgCover.style.transform = "scale(1.19)";
+    imgCover.style.filter = "brightness(105%)";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    imgCover.style.transform = "scale(1)";
+    imgCover.style.filter = "brightness(80%)";
+  });
+}
 
 // Handling the cookie popup when the DOM is loaded
 document.addEventListener("DOMContentLoaded", handleCookiePopup);
 
+// Closes the cookie popup
+function closeCookiePopup() {
+  cookiePopup.style.display = "none";
+}
+
+function handleCookiePopup() {
+  if (!localStorage.getItem("cookieAccepted")) {
+    cookiePopup.style.display = "block";
+
+    acceptCookieButton.addEventListener("click", () => {
+      closeCookiePopup();
+      localStorage.setItem("cookieAccepted", "true");
+    });
+
+    rejectCookieButton.addEventListener("click", () => {
+      closeCookiePopup();
+      localStorage.setItem("cookieRejected", "true");
+    });
+
+    cancelIcon.addEventListener("click", () => {
+      closeCookiePopup();
+    });
+  }
+}
+
 // Handling hover effects for card titles
 cardTitles.forEach(handleCardTitleHover);
+
+function handleCardTitleHover(cardTitle) {
+  cardTitle.addEventListener("mouseover", () => {
+    cardTitle.classList.add("hover:underline");
+  });
+
+  cardTitle.addEventListener("mouseout", () => {
+    cardTitle.classList.remove("hover:underline");
+  });
+}
 
 // Adding mouseover and mouseout event listeners to the logoDiv
 logoDiv.addEventListener("mouseover", () => {
@@ -79,113 +175,4 @@ function hideParagraph(logoDiv) {
   if (paragraph) {
     paragraph.style.visibility = "hidden";
   }
-}
-
-// Navigation functions
-// Toggles the navigation menu and overlay's visibility
-function toggleNavbar() {
-  navbar.classList.toggle("active");
-  overlay.classList.toggle("active");
-  document.body.classList.toggle("active");
-}
-
-// Closes the navigation menu
-function closeNavbar() {
-  navbar.classList.remove("active");
-  overlay.classList.remove("active");
-  document.body.classList.remove("active");
-}
-
-// Handles hover effects for navigation links
-function handleNavbarLinksHover() {
-  navbarLinks.forEach((link) => {
-    link.addEventListener("mouseover", () => {
-      link.style.color = "var(--sefety-orange)";
-    });
-
-    link.addEventListener("mouseout", () => {
-      link.style.color = "var(--davys-gray)";
-    });
-  });
-}
-
-// Button functions
-
-// Handles hover effects for buttons
-function handleButtonHover(button) {
-  button.addEventListener("mouseover", () => {
-    button.style.backgroundColor = "transparent";
-  });
-
-  button.addEventListener("mouseout", () => {
-    button.style.backgroundColor = "var(--gunmetal)";
-  });
-}
-
-// Header on scroll function
-
-// Adds or removes the "active" class from the header based on scroll position
-function activeElemOnScroll() {
-  if (window.scrollY > 100) {
-    header.classList.add("active");
-  } else {
-    header.classList.remove("active");
-  }
-}
-
-// Project card functions
-
-// Handles hover effects for project cards
-function handleProjectCardHover(card) {
-  const imgCover = card.querySelector(".img-cover");
-  card.addEventListener("mouseenter", () => {
-    imgCover.style.transform = "scale(1.19)";
-    imgCover.style.filter = "brightness(105%)";
-  });
-
-  card.addEventListener("mouseleave", () => {
-    imgCover.style.transform = "scale(1)";
-    imgCover.style.filter = "brightness(80%)";
-  });
-}
-
-// Cookie popup functions
-
-// Closes the cookie popup
-function closeCookiePopup() {
-  cookiePopup.style.display = "none";
-}
-
-// Handles the display of the cookie popup when the page loads
-function handleCookiePopup() {
-  if (!localStorage.getItem("cookieAccepted")) {
-    cookiePopup.style.display = "block";
-
-    acceptCookieButton.addEventListener("click", () => {
-      closeCookiePopup();
-      localStorage.setItem("cookieAccepted", "true");
-    });
-
-    rejectCookieButton.addEventListener("click", () => {
-      closeCookiePopup();
-      localStorage.setItem("cookieRejected", "true");
-    });
-
-    cancelIcon.addEventListener("click", () => {
-      closeCookiePopup();
-    });
-  }
-}
-
-// Card title functions
-
-// Handles hover effects for card titles
-function handleCardTitleHover(cardTitle) {
-  cardTitle.addEventListener("mouseover", () => {
-    cardTitle.classList.add("hover:underline");
-  });
-
-  cardTitle.addEventListener("mouseout", () => {
-    cardTitle.classList.remove("hover:underline");
-  });
 }
