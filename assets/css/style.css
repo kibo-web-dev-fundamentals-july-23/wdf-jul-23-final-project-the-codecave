@@ -472,12 +472,12 @@ body {
 .service .section-text {
   margin-block-end: 20px;
 }
-
+/* POINT */
 .service-card {
   background-color: var(--white);
   padding: 50px 30px;
   border-radius: 4px;
-  box-shadow: -10px 10px 40px -2px;
+  box-shadow: -10px 10px 30px -2px;
 }
 
 .service-card .card-title {
@@ -498,9 +498,7 @@ body {
   left: -50px;
 }
 
-/*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
+/* ABOUT */
 
 .about {
   padding-top: 50px;
@@ -859,14 +857,6 @@ body {
     --padding: 10px 32px;
     font-weight: 500;
   }
-  .btn {
-    background-color: var(--bg, var(--gunmetal));
-    padding: var(--padding, 10px 20px);
-    border: 2px solid var(--border-color, var(--gunmetal));
-    border-radius: 4px;
-    transition: var(--transition-1);
-    border-radius: 50px;
-  }
 
   /**
    * FOOTER
@@ -966,4 +956,13 @@ body {
   .project-list > *:is(:first-child, :nth-child(2)) {
     width: calc(50% - 30px);
   }
+}
+
+.btn {
+  background-color: var(--bg, var(--gunmetal));
+  padding: var(--padding);
+  border: 2px solid var(--border-color, var(--gunmetal));
+  border-radius: 4px;
+  transition: var(--transition-1);
+  border-radius: 50px;
 }

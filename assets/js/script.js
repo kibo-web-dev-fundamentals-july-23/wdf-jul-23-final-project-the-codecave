@@ -1,5 +1,3 @@
-("use strict");
-
 // Main code
 
 // Selecting various elements by their data attributes or IDs
@@ -60,8 +58,30 @@ logoDiv.addEventListener("mouseout", () => {
   hideParagraph(logoDiv);
 });
 
-// Navigation functions
+// Logo functions
+// Function to show the logo paragraph on mouseover
+function showParagraph(logoDiv) {
+  // Find the paragraph within the logo
+  const paragraph = logoDiv.querySelector("p");
 
+  // Make the paragraph visible
+  if (paragraph) {
+    paragraph.style.visibility = "visible";
+  }
+}
+
+// Function to hide the logo paragraph on mouseout
+function hideParagraph(logoDiv) {
+  // Find the paragraph within the logo
+  const paragraph = logoDiv.querySelector("p");
+
+  // Hide the paragraph
+  if (paragraph) {
+    paragraph.style.visibility = "hidden";
+  }
+}
+
+// Navigation functions
 // Toggles the navigation menu and overlay's visibility
 function toggleNavbar() {
   navbar.classList.toggle("active");
@@ -168,26 +188,4 @@ function handleCardTitleHover(cardTitle) {
   cardTitle.addEventListener("mouseout", () => {
     cardTitle.classList.remove("hover:underline");
   });
-}
-
-// Function to show the paragraph on mouseover
-function showParagraph(logoDiv) {
-  // Find the paragraph within the logo
-  const paragraph = logoDiv.querySelector("p");
-
-  // Make the paragraph visible
-  if (paragraph) {
-    paragraph.style.visibility = "visible";
-  }
-}
-
-// Function to hide the paragraph on mouseout
-function hideParagraph(logoDiv) {
-  // Find the paragraph within the logo
-  const paragraph = logoDiv.querySelector("p");
-
-  // Hide the paragraph
-  if (paragraph) {
-    paragraph.style.visibility = "hidden";
-  }
 }
