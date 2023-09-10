@@ -562,6 +562,7 @@ body.active {
 .about .section-text {
   font-size: unset;
   margin-block: 30px 40px;
+  color: var(--cultured);
 }
 
 .about .btn {
