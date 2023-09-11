@@ -4,7 +4,6 @@
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-// const overlay = document.querySelector("[data-overlay]");
 const header = document.querySelector("[data-header]");
 const buttons = document.querySelectorAll(".btn");
 const projectCards = document.querySelectorAll(".project-card");
